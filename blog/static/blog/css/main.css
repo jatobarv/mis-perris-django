@@ -271,15 +271,9 @@ p {
 }
 
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
+    display: inline-block;
     width: 100%;
     height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
 }
 
 .modal h2 {
@@ -291,9 +285,6 @@ p {
     margin: 6% auto;
     padding: 20px;
     width: 60%;
-    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
-    animation-name: modalopen;
-    animation-duration: 1s;
 }
 
 label {
@@ -310,15 +301,7 @@ select {
     box-sizing: border-box;
 }
 
-@keyframes modalopen {
-    from {
-        opacity: 0;
-    }
 
-    to {
-        opacity: 1;
-    }
-}
 
 #gallery .closebtn {
     color: #ccc;
@@ -375,6 +358,10 @@ footer .socialmedia ul {
     #menu ul {
         margin: 8px 0 0 400px;
         list-style: none;
+    }
+
+    .modal-content {
+        width: 95%
     }
 
     .carousel {

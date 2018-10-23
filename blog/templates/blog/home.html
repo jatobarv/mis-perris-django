@@ -1,5 +1,181 @@
 {% extends "blog/base.html" %}
+{% load static %}
 {% block content %}
+<div class="carousel">
+    <div class="mySlides">
+        <img src="{% static 'blog/imagenes/adoptados/Apolo.jpg' %}" alt="Apolo">
+        <div class="text">
+            <h3>Adoptado</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta dolores deleniti modi ipsa
+                quibusdam magnam?</p>
+        </div>
+    </div>
+
+    <div class="mySlides fade">
+        <img src="{% static 'blog/imagenes/adoptados/Duque.jpg' %}" alt="Duque">
+        <div class="text">
+            <h3>Adoptados</h3>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet hic quae dolorum?</p>
+        </div>
+    </div>
+
+    <div class="mySlides fade">
+        <img src="{% static 'blog/imagenes/adoptados/Tom.jpg' %}" alt="Tom">
+        <div class="text">
+            <h3>Adoptados</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore, quas.</p>
+        </div>
+    </div>
+
+    <a class="prev" tabindex="5" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" tabindex="6" onclick="plusSlides(1)">&#10095;</a>
+
+</div>
+<br>
+
+<div class="info">
+    <div class="rescue">
+        <div class="photo">
+            <img src="{% static 'blog/imagenes/12.07.17_PuppyLab_Killian5.jpg' %}" alt="">
+        </div>
+        <div class="text">
+            <h2>Rescate</h2>
+            <h3>Etapa uno</h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet explicabo ratione beatae nisi
+                optio enim, amet distinctio illo voluptatem laboriosam, inventore pariatur iste error excepturi
+                eum debitis et sequi doloremque.</p>
+        </div>
+    </div>
+    <div class="crowfunding">
+        <div class="photo">
+            <img src="{% static 'blog/imagenes/D059BC4A-CCF3-4495-849ABBAFAED10456.jpg' %}" alt="">
+        </div>
+        <div class="text">
+            <h2>Crowfunding</h2>
+            <h3>Financiamiento</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa impedit quaerat reiciendis aliquam
+                nemo consectetur. Dolorem nobis ea molestias explicabo voluptates. Voluptates quisquam, nisi
+                voluptas dolorum repellat est aliquid exercitationem.</p>
+        </div>
+    </div>
+</div>
+<h2>Perritos</h2>
+<div id="gallery">
+    <div id="simpleModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="closebtn" tabindex="-1" onclick="closeModal()">&times;</span>
+                <h2>Regístrate</h2>
+            </div>
+            <div class="modal-body">
+                <form onsubmit="validate()" action="#">
+                    <label for="txtCorreo">Correo:</label>
+                    <input type="text" id="txtCorreo" tabindex="0" placeholder="Ingrese correo electronico" required />
+                    <br>
+                    <label for="txtRut">Rut:</label>
+                    <input type="text" onkeyup="modifyText()" id="txtRut" tabindex="0" maxlength="10" placeholder="Ingrese Rut sin puntos ni guion"
+                        required />
+                    <br>
+                    <label for="txtNombre">Nombre Completo:</label>
+                    <input type="text" id="txtNombre" tabindex="0" placeholder="Ingrese su nombre" required>
+                    <br>
+                    <label for="fechaNac">Fecha de nacimiento:</label>
+                    <input type="date" id="fechaNac" tabindex="0" required max="2001-01-01">
+                    <br>
+                    <label for="txtNumero">Teléfono de contacto:</label>
+                    <input type="number" id="txtNumero" tabindex="0" placeholder="Ingrese su numero de teléfono">
+                    <br>
+                    <label for="txtRegion">Región</label>
+                    <select id="txtRegion" tabindex="0" oninput="selectCity()"></select>
+                    <br>
+                    <label for="txtCity">Ciudad</label>
+                    <select id="txtCity" tabindex="0"></select>
+                    <label for="sltVivienda">Seleccione tipo de vivienda:</label>
+                    <select id="sltVivienda" tabindex="0">
+                        <option>Casa con patio grande</option>
+                        <option>Casa con patio Pequeño</option>
+                        <option>Casa sin patio</option>
+                        <option>Departamento</option>
+                    </select>
+                    <button class="button" tabindex="0">Guardar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <img id="wifi" src="{% static 'blog/imagenes/rescatados/Wifi.jpg' %}" alt="Wifi" class="image">
+        <div class="text">
+            <h3>Wifi</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod nihil neque minus aliquid
+                blanditiis maxime!</p>
+            <button class="button" tabindex="7" onclick="openModal()">Adóptame</button>
+        </div>
+    </div>
+    <div class="card">
+        <img id="maya" src="{% static 'blog/imagenes/rescatados/Maya.jpg' %}" alt="Maya" class="image">
+        <div class="text">
+            <h3>Maya</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci similique unde facere! Eum,
+                vero obcaecati!</p>
+            <button class="button" tabindex="8" onclick="openModal()">Adóptame</button>
+
+        </div>
+    </div>
+    <div class="card">
+        <img id="oso" src="{% static 'blog/imagenes/rescatados/Oso.jpg' %}" alt="Oso" class="image">
+
+        <div class="text">
+            <h3>Oso</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias consectetur modi labore
+                laudantium non voluptatibus..</p>
+            <button class="button" tabindex="9" onclick="openModal()">Adóptame</button>
+
+        </div>
+    </div>
+    <div class="card">
+
+        <img id="luna" src="{% static 'blog/imagenes/rescatados/Luna.jpg' %}" alt="Luna" class="image">
+        <div class="text">
+            <h3>Luna</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam ut cumque culpa illo vero?
+                Magnam?</p>
+            <button class="button" tabindex="10" onclick="openModal()">Adóptame</button>
+
+        </div>
+    </div>
+    <div class="card">
+
+        <img id="pexel" src="{% static 'blog/imagenes/rescatados/Pexel.jpg' %}" alt="Pexel" class="image">
+        <div class="text">
+            <h3>Pexel</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam suscipit impedit iure illum
+                cupiditate incidunt?</p>
+            <button class="button" tabindex="11" onclick="openModal()">Adóptame</button>
+
+        </div>
+    </div>
+    <div class="card">
+
+        <img id="chocolate" src="{% static 'blog/imagenes/rescatados/Chocolate.jpg' %}" alt="Chocolate" class="image">
+        <div class="text">
+            <h3>Chocolate</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur cumque asperiores ducimus
+                blanditiis dolor. Repellat.</p>
+            <button class="button" tabindex="12" onclick="openModal()">Adóptame</button>
+
+        </div>
+    </div>
+    <div class="card">
+
+        <img id="bigotes" src="{% static 'blog/imagenes/rescatados/Bigotes.jpg' %}" alt="Bigotes" class="image">
+        <div class="text">
+            <h3>Bigotes</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates iure itaque labore fugit
+                dolor quasi?</p>
+            <button class="button" tabindex="13" onclick="openModal()">Adóptame</button>
+        </div>
+    </div>
+</div>
 {% for post in posts %}
 <h1>{{ post.title }}</h1>
 <p>{{ post.content }}</p>

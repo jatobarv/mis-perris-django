@@ -135,9 +135,19 @@
         </div>
     </div>
 </div>
-{% for post in posts %}
-<h1>{{ post.title }}</h1>
-<p>{{ post.content }}</p>
-<p>by {{ post.author }} on {{ post.date_posted|date:"d/m/Y" }}</p>
-{% endfor %}
+<h1>Perritos disponibles</h1>
+<div id="gallery">
+    {% for post in posts %}
+    <div class="card">
+        <img id="Nuevo" src="{{ post.picture.url }}" alt="Bigotes" class="image">
+        <div class="text">
+            <h1>{{ post.name }}</h1>
+            <p>{{ post.breed }}</p>
+            <p>{{ post.description }}</p>
+            <p>{{ post.condition }}</p>
+            <button class="button" tabindex="13" onclick="location.href='{% url 'login' %}'">Adóptame</button>
+        </div>
+    </div>
+    {% endfor %}
+</div>
 {% endblock content %}

@@ -15,15 +15,24 @@
 
 <body>
     <div id="nav">
-        <div class="logo">
-            <img src="{% static 'blog/imagenes/logo.png' %}" alt="Logo mis Perris">
+        <div class="logo"><a href="{% url 'blog-home' %}">
+
+                <img src="{% static 'blog/imagenes/logo.png' %}" alt="Logo mis Perris">
+            </a>
             <span class="openbtn" onclick="openNav()">&#9776;</span>
             <div id="menu">
                 <ul>
-                    <li><a href="#" tabindex="1">Inicio</a></li>
+                    <li><a href="{% url 'blog-home' %}" tabindex="1">Inicio</a></li>
                     <li><a href="#" tabindex="2">Quiénes somos</a></li>
-                    <li><a href="#" tabindex="3">Adóptame</a></li>
-                    <li><a href="#" tabindex="4">Contáctanos</a></li>
+                    <li><a href="#" tabindex="3">Contáctanos</a></li>
+
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'logout' %}" tabindex="4">Cerrar sesión</a></li>
+
+                    {% else %}
+                    <li><a href="{% url 'login' %}" tabindex="4">Iniciar sesión</a></li>
+                    <li><a href="{% url 'register' %}" tabindex="5">Registrarse</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
@@ -32,8 +41,14 @@
                 <li><a href="#" tabindex="-1" class="closebtn" onclick="closeNav()">&times;</a></li>
                 <li><a href="#" tabindex="-1">Inicio</a></li>
                 <li><a href="#" tabindex="-1">Quiénes somos</a></li>
-                <li><a href="#" tabindex="-1">Adóptame</a></li>
                 <li><a href="#" tabindex="-1">Contáctanos</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'logout' %}" tabindex="4">Cerrar sesión</a></li>
+
+                {% else %}
+                <li><a href="{% url 'login' %}" tabindex="-1">Iniciar sesion</a></li>
+                <li><a href="{% url 'register' %}" tabindex="-1">Registrarse</a></li>
+                {% endif %}
             </ul>
             <div class="socialmedia">
                 <ul>

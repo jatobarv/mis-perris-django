@@ -7,7 +7,7 @@
         <div>
             <div class="modal-content">
                 <div>
-                    <h2>Regístrate</h2>
+                    <h2>Ingresa</h2>
                 </div>
                 <div class="modal-body">
                     <form method='POST'>
@@ -16,12 +16,12 @@
                             {{ form|crispy }}
                         </fieldset>
                         <div class="form-group">
-                            <button class="btn btn-outline-info" type="submit">Registrar</button>
+                            <button class="btn btn-outline-info" type="submit">Ingresa</button>
                         </div>
                     </form>
                     <div class="border-top pt-3">
                         <small class="text-muted">
-                            Ya tienes una cuenta? <a href="{% url 'login' %}" class="ml-2">Ingresa</a>
+                            Necesitas una cuenta? <a href="{% url 'register' %}" class="ml-2">Registrate</a>
                         </small>
                     </div>
                 </div>

@@ -46,8 +46,16 @@
     </div>
 
     <div id="container">
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% block content %}
+        {% endblock content %}
     </div>
-    {% block content %}{% endblock content %}
     <footer>
         <div class="socialmedia">
             <p>Hecho por la cualquiera</p>

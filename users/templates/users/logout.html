@@ -1,9 +1,12 @@
 {% extends "blog/base.html" %}
 {% block content %}
-<h2>Usted se ha desconectado</h2>
-<div class="border-top pt-3">
-    <small class="text-muted">
-        <a href="{% url 'login' %}">Ingresa</a>
-    </small>
+<div class="modal-content">
+    <h2>Usted se ha desconectado</h2>
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            <a href="{% url 'login' %}">Ingresa</a>
+        </small>
+    </div>
 </div>
+
 {% endblock content %}

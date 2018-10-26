@@ -59,7 +59,7 @@
         </div>
     </div>
 </div>
-<h2>Perritos</h2>
+<h2>Perritos adoptados</h2>
 <div id="gallery">
     <div class="card">
         <img id="wifi" src="{% static 'blog/imagenes/rescatados/Wifi.jpg' %}" alt="Wifi" class="image">
@@ -67,7 +67,6 @@
             <h3>Wifi</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod nihil neque minus aliquid
                 blanditiis maxime!</p>
-            <button class="button" tabindex="7" onclick="location.href='{% url 'login' %}'">Adóptame</button>
         </div>
     </div>
     <div class="card">
@@ -76,8 +75,6 @@
             <h3>Maya</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci similique unde facere! Eum,
                 vero obcaecati!</p>
-            <button class="button" tabindex="8" onclick="location.href='{% url 'login' %}'">Adóptame</button>
-
         </div>
     </div>
     <div class="card">
@@ -87,8 +84,6 @@
             <h3>Oso</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias consectetur modi labore
                 laudantium non voluptatibus..</p>
-            <button class="button" tabindex="9" onclick="location.href='{% url 'login' %}'">Adóptame</button>
-
         </div>
     </div>
     <div class="card">
@@ -98,8 +93,6 @@
             <h3>Luna</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam ut cumque culpa illo vero?
                 Magnam?</p>
-            <button class="button" tabindex="10" onclick="location.href='{% url 'login' %}'">Adóptame</button>
-
         </div>
     </div>
     <div class="card">
@@ -109,8 +102,6 @@
             <h3>Pexel</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam suscipit impedit iure illum
                 cupiditate incidunt?</p>
-            <button class="button" tabindex="11" onclick="location.href='{% url 'login' %}'">Adóptame</button>
-
         </div>
     </div>
     <div class="card">
@@ -120,8 +111,6 @@
             <h3>Chocolate</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur cumque asperiores ducimus
                 blanditiis dolor. Repellat.</p>
-            <button class="button" tabindex="12" onclick="location.href='{% url 'login' %}'">Adóptame</button>
-
         </div>
     </div>
     <div class="card">
@@ -131,21 +120,27 @@
             <h3>Bigotes</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates iure itaque labore fugit
                 dolor quasi?</p>
-            <button class="button" tabindex="13" onclick="location.href='{% url 'login' %}'">Adóptame</button>
         </div>
     </div>
 </div>
+{% if posts|length > 0%}
 <h1>Perritos disponibles</h1>
+{% endif %}
+
 <div id="gallery">
     {% for post in posts %}
     <div class="card">
-        <img id="Nuevo" src="{{ post.picture.url }}" alt="Bigotes" class="image">
+        <img src="{{ post.picture.url }}">
         <div class="text">
             <h1>{{ post.name }}</h1>
             <p>{{ post.breed }}</p>
             <p>{{ post.description }}</p>
             <p>{{ post.condition }}</p>
-            <button class="button" tabindex="13" onclick="location.href='{% url 'login' %}'">Adóptame</button>
+            <button class="btn btn-primary btn-sm mt-1 mb-1" tabindex="13" onclick="openmodal()">Adóptame</button>
+            {% if user.is_superuser %}
+            <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'post-delete' post.id %}" tabindex="14">Borrar perrito</a>
+            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post-update' post.id %}" tabindex="14">Actualizar perrito</a>
+            {% endif %}
         </div>
     </div>
     {% endfor %}

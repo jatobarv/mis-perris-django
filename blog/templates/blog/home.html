@@ -136,7 +136,9 @@
             <p>{{ post.breed }}</p>
             <p>{{ post.description }}</p>
             <p>{{ post.condition }}</p>
+            {% if user.is_authenticated %}
             <button class="btn btn-primary btn-sm mt-1 mb-1" tabindex="13" onclick="openmodal()">Adóptame</button>
+            {% endif %}
             {% if user.is_superuser %}
             <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'post-delete' post.id %}" tabindex="14">Borrar perrito</a>
             <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post-update' post.id %}" tabindex="14">Actualizar perrito</a>

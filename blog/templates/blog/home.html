@@ -123,7 +123,7 @@
         </div>
     </div>
 </div>
-{% if posts|length > 0%}
+{% if posts|length > 0 %}
 <h1>Perritos disponibles</h1>
 {% endif %}
 
@@ -136,12 +136,18 @@
             <p>{{ post.breed }}</p>
             <p>{{ post.description }}</p>
             <p>{{ post.condition }}</p>
+            {% if not user.is_authenticated %}
+            <a class="btn btn-primary btn-sm mt-1 mb-1" href="{% url 'register' %}" tabindex="13">Adóptame</a>
+            {% endif %}
+
             {% if user.is_authenticated %}
-            <button class="btn btn-primary btn-sm mt-1 mb-1" tabindex="13" onclick="openmodal()">Adóptame</button>
+            <a class="btn btn-primary btn-sm mt-1 mb-1" onclick="openmodal()" tabindex="14">Adóptame</a>
             {% endif %}
             {% if user.is_superuser %}
-            <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'post-delete' post.id %}" tabindex="14">Borrar perrito</a>
-            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post-update' post.id %}" tabindex="14">Actualizar perrito</a>
+            <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'post-delete' post.id %}" tabindex="14">Borrar
+                perrito</a>
+            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post-update' post.id %}" tabindex="14">Actualizar
+                perrito</a>
             {% endif %}
         </div>
     </div>

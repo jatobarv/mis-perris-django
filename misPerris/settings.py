@@ -25,7 +25,7 @@ SECRET_KEY = 'l$e9utx^1uk23=_!hs1(b&34837d%7(*^#czrkd_+h6!-&li_t'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['jatobarv.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'jatobarv.pythonanywhere.com']
 
 
 # Application definition

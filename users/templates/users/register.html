@@ -10,15 +10,12 @@
                     <h2>Regístrate</h2>
                 </div>
                 <div class="modal-body">
-                    <form method='POST'>
-                        {% csrf_token %}
-                        <fieldset class="form-group">
-                            {{ form|crispy }}
-                        </fieldset>
-                        <div class="form-group">
-                            <button class="btn btn-outline-info" type="submit">Registrar</button>
-                        </div>
-                    </form>
+                    <fieldset class="form-group">
+                        {{ form|crispy }}
+                    </fieldset>
+                    <div class="form-group">
+                        <button class="btn btn-outline-info" type="submit">Registrar</button>
+                    </div>
                     <div class="border-top pt-3">
                         <small class="text-muted">
                             Ya tienes una cuenta? <a href="{% url 'login' %}" class="ml-2">Ingresa</a>

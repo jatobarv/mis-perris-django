@@ -25,10 +25,10 @@
                     <li><a href="{% url 'blog-home' %}" tabindex="1">Inicio</a></li>
                     <li><a href="#" tabindex="2">Quiénes somos</a></li>
                     <li><a href="#" tabindex="3">Contáctanos</a></li>
-                    
+
                     {% if user.is_superuser %}
                     <li><a href="{% url 'post-create' %}" tabindex="4">Añadir perrito</a></li>
-
+                    <li><a href="{% url 'admin:index' %}">Administrar</a></li>
                     {% endif %}
 
                     {% if user.is_authenticated %}

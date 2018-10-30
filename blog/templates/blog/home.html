@@ -95,33 +95,6 @@
                 Magnam?</p>
         </div>
     </div>
-    <div class="card">
-
-        <img id="pexel" src="{% static 'blog/imagenes/rescatados/Pexel.jpg' %}" alt="Pexel" class="image">
-        <div class="text">
-            <h3>Pexel</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam suscipit impedit iure illum
-                cupiditate incidunt?</p>
-        </div>
-    </div>
-    <div class="card">
-
-        <img id="chocolate" src="{% static 'blog/imagenes/rescatados/Chocolate.jpg' %}" alt="Chocolate" class="image">
-        <div class="text">
-            <h3>Chocolate</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur cumque asperiores ducimus
-                blanditiis dolor. Repellat.</p>
-        </div>
-    </div>
-    <div class="card">
-
-        <img id="bigotes" src="{% static 'blog/imagenes/rescatados/Bigotes.jpg' %}" alt="Bigotes" class="image">
-        <div class="text">
-            <h3>Bigotes</h3>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates iure itaque labore fugit
-                dolor quasi?</p>
-        </div>
-    </div>
 </div>
 {% if posts|length > 0 %}
 <h1>Perritos disponibles</h1>
@@ -132,16 +105,16 @@
     <div class="card">
         <img src="{{ post.picture.url }}">
         <div class="text">
-            <h1>{{ post.name }}</h1>
-            <p>{{ post.breed }}</p>
-            <p>{{ post.description }}</p>
-            <p>{{ post.condition }}</p>
+            <p>Nombre: {{ post.name }}</p>
+            <p>Raza: {{ post.breed }}</p>
+            <p>Descripción: {{ post.description }}</p>
+            <p>Condición: {{ post.condition }}</p>
             {% if not user.is_authenticated %}
             <a class="btn btn-primary btn-sm mt-1 mb-1" href="{% url 'register' %}" tabindex="13">Adóptame</a>
             {% endif %}
 
             {% if user.is_authenticated %}
-            <a class="btn btn-primary btn-sm mt-1 mb-1" onclick="openmodal()" tabindex="14">Adóptame</a>
+            <a class="btn btn-primary btn-sm mt-1 mb-1" href="{% url 'adopt' post.id %}" tabindex="14">Adóptame</a>
             {% endif %}
             {% if user.is_superuser %}
             <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'post-delete' post.id %}" tabindex="14">Borrar

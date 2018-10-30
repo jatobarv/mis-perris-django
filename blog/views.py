@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from .models import Post
@@ -9,6 +9,16 @@ def home(request):
         'posts': Post.objects.all()
     }
     return render(request, 'blog/home.html', context)
+
+
+def adopt(request, pk):
+    context = {
+        'posts': Post.objects.all()
+    }
+    post = Post.objects.get(id=pk)
+    post.condition = 'Adoptado'
+    post.save()
+    return render(request, 'blog/adopt.html', context)
 
 
 class PostListView(ListView):

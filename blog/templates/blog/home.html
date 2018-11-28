@@ -59,46 +59,13 @@
         </div>
     </div>
 </div>
-<h2>Perritos adoptados</h2>
-<div id="gallery">
-    <div class="card">
-        <img id="wifi" src="{% static 'blog/imagenes/rescatados/Wifi.jpg' %}" alt="Wifi" class="image">
-        <div class="text">
-            <h3>Wifi</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod nihil neque minus aliquid
-                blanditiis maxime!</p>
-        </div>
-    </div>
-    <div class="card">
-        <img id="maya" src="{% static 'blog/imagenes/rescatados/Maya.jpg' %}" alt="Maya" class="image">
-        <div class="text">
-            <h3>Maya</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci similique unde facere! Eum,
-                vero obcaecati!</p>
-        </div>
-    </div>
-    <div class="card">
-        <img id="oso" src="{% static 'blog/imagenes/rescatados/Oso.jpg' %}" alt="Oso" class="image">
-
-        <div class="text">
-            <h3>Oso</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias consectetur modi labore
-                laudantium non voluptatibus..</p>
-        </div>
-    </div>
-    <div class="card">
-
-        <img id="luna" src="{% static 'blog/imagenes/rescatados/Luna.jpg' %}" alt="Luna" class="image">
-        <div class="text">
-            <h3>Luna</h3>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam ut cumque culpa illo vero?
-                Magnam?</p>
-        </div>
-    </div>
-</div>
 {% if posts|length > 0 %}
 <h1>Perritos disponibles</h1>
 {% endif %}
+
+<p id="txtData">
+
+</p>
 
 <div id="gallery">
     {% for post in posts %}

@@ -17,8 +17,14 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from django.urls import path, include
 from django.conf import settings
+from django.conf.urls import url, include
+from rest_framework import routers
+from api import views
 from django.conf.urls.static import static
 from users import views as user_views
+
+router = routers.DefaultRouter()
+router.register(r'posts', views.PostViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -34,6 +40,9 @@ urlpatterns = [
         template_name='users/password_reset_confirm.html'), name='password_reset_confirm'),
     path('password-reset-complete/', auth_views.PasswordResetCompleteView.as_view(
         template_name='users/password_reset_complete.html'), name='password_reset_complete'),
+    url(r'^', include(router.urls)),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+
 ]
 
 
